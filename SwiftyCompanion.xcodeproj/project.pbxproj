@@ -57,14 +57,30 @@
 			isa = PBXGroup;
 			children = (
 				E813BDAA211AFF6E0059340B /* AppDelegate.swift */,
-				E813BDC4211B18420059340B /* SearchResViewController.swift */,
-				E813BDAC211AFF6E0059340B /* ViewController.swift */,
-				E813BDAE211AFF6E0059340B /* Main.storyboard */,
+				E8C55A52211B3F86009CFB42 /* Controller */,
+				E8C55A53211B3F9C009CFB42 /* View */,
 				E813BDB1211AFF6E0059340B /* Assets.xcassets */,
-				E813BDB3211AFF6E0059340B /* LaunchScreen.storyboard */,
 				E813BDB6211AFF6E0059340B /* Info.plist */,
 			);
 			path = SwiftyCompanion;
+			sourceTree = "<group>";
+		};
+		E8C55A52211B3F86009CFB42 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E813BDAC211AFF6E0059340B /* ViewController.swift */,
+				E813BDC4211B18420059340B /* SearchResViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E8C55A53211B3F9C009CFB42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E813BDB3211AFF6E0059340B /* LaunchScreen.storyboard */,
+				E813BDAE211AFF6E0059340B /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

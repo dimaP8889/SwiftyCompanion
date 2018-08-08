@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var SearchName: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -18,13 +20,6 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    @IBOutlet weak var SearchName: UISearchBar!
-    
-    func readSearchName() {
-        
-        print(SearchName.text!)
     }
     
     @IBAction func searchButtonTap(_ sender: UIButton) {
@@ -37,7 +32,7 @@ class ViewController: UIViewController {
             
             let secondVC = segue.destination as! SearchResViewController
             
-            secondVC.searchName = SearchName.text!
+            secondVC.NickName = SearchName.text!
             
         }
     }

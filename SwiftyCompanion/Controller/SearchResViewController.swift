@@ -10,7 +10,10 @@ import UIKit
 
 class SearchResViewController: UIViewController {
 
-    var searchName = ""
+    var NickName = ""
+    var NameSurname = ""
+    var Number = 0
+    var Points = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
