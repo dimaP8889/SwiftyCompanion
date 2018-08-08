@@ -20,6 +20,27 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBOutlet weak var SearchName: UISearchBar!
+    
+    func readSearchName() {
+        
+        print(SearchName.text!)
+    }
+    
+    @IBAction func searchButtonTap(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: "SearchResults", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SearchResults" {
+            
+            let secondVC = segue.destination as! SearchResViewController
+            
+            secondVC.searchName = SearchName.text!
+            
+        }
+    }
+    
 }
 
