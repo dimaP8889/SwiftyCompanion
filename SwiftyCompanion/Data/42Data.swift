@@ -12,9 +12,11 @@ class UserData {
     
     var NickName = ""
     var NameSurname = ""
-    var Number = 0
-    var Points = 0
-    var Level = 0
+    var Number = ""
+    var Points = ""
+    var Level = ""
     
+    var Image = ""
     
+    var Projects : [String : Int] = [:]
 }

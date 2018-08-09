@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lEg-7b-peQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lEg-7b-peQ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="GurmukhiMN.ttc">
-            <string>GurmukhiMN</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Home-->
         <scene sceneID="76g-Uf-Bhc">
@@ -107,7 +102,8 @@
                                                                 <rect key="frame" x="15" y="8" width="152" height="135"/>
                                                             </imageView>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.56873089020000001" green="1" blue="0.32591753470000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="hjS-y6-tf4" firstAttribute="leading" secondItem="ZSB-0x-O3Z" secondAttribute="leading" constant="15" id="E3T-Xg-ECr"/>
                                                             <constraint firstAttribute="trailing" secondItem="hjS-y6-tf4" secondAttribute="trailing" constant="20.5" id="MuS-XB-d5F"/>
@@ -199,7 +195,11 @@
                         <viewLayoutGuide key="safeArea" id="82W-Hk-x6p"/>
                     </view>
                     <connections>
+                        <outlet property="CorrectionPoints" destination="4rp-7S-Tfp" id="Eta-Ze-ygu"/>
+                        <outlet property="Face" destination="hjS-y6-tf4" id="YKc-nV-vub"/>
+                        <outlet property="Level" destination="P5r-1x-kDh" id="00h-Ox-d4v"/>
                         <outlet property="NameSurnameLabel" destination="Jc4-qb-Rjw" id="Cmh-0J-AoH"/>
+                        <outlet property="PhoneNumber" destination="9U2-5m-VkH" id="Ea7-2n-V7y"/>
                         <outlet property="tableView" destination="eS9-KZ-ej4" id="S5O-qV-VwR"/>
                     </connections>
                 </viewController>

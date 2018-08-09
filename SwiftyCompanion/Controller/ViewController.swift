@@ -32,7 +32,7 @@ class ViewController: UIViewController {
             
             let secondVC = segue.destination as! SearchResViewController
             
-            secondVC.NickName = SearchName.text!
+            secondVC.NickName = SearchName.text!.lowercased()
             
         }
     }
