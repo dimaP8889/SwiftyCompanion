@@ -8,5 +8,5 @@ target 'SwiftyCompanion' do
   # Pods for SwiftyCompanion
   pod "Alamofire"
   pod "SwiftyJSON"
-
+  pod "SVProgressHUD"
 end

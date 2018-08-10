@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-class SearchResViewController: UIViewController {
+class SearchResViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     
     let UID = "d7d492c61c7fdff3ba700084416e5a68511b5b898598da227c9ab541ddb20941"
@@ -20,15 +20,9 @@ class SearchResViewController: UIViewController {
     
     var NickName = ""
     
-    let Data = UserData()
+    var Data = UserData()
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var NameSurnameLabel: UILabel!
-    @IBOutlet weak var CorrectionPoints: UILabel!
-    @IBOutlet weak var PhoneNumber: UILabel!
-    @IBOutlet weak var Level: UILabel!
-    @IBOutlet weak var Face: UIImageView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,80 +30,77 @@ class SearchResViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
-        getToken()
+        self.tableView.register(InfoCell.self, forCellReuseIdentifier: "InfoCell")
+        self.tableView.register(SkillsCell.self, forCellReuseIdentifier: "SkillsCell")
     }
     
-    func    setLabelNames() {
-        
-        NameSurnameLabel.text = Data.NameSurname
-        PhoneNumber.text = "Phone: " + Data.Number
-        CorrectionPoints.text = "Points: " + Data.Points
-        Level.text = "Level: " + Data.Level
-        
-        let url = URL(string: Data.Image)
-        let data = NSData(contentsOf: url! as URL)
-        Face.image = UIImage(data: data! as Data)
-        
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
     }
     
-    func    getInfo(token : String) {
-        let params: String = "Authorization Bearer \(token)"
-        let headers: HTTPHeaders = [
-            "Authorization": "Bearer \(token)",
-            "Accept": "application/json"
-        ]
-        
-        print(params)
-        Alamofire.request(requestUrl, headers : headers).responseJSON {
-            response in
-            if response.result.isSuccess {
-
-                let results : JSON = JSON(response.result.value!)
-                self.setParams(results: results)
-                self.setLabelNames()
-            } else {
-                print ("Loshara Tupoi")
-            }
-        }
-    }
-    
-    func    getToken() {
-        let params:[String:String] = ["grant_type" : "client_credentials", "client_id" : UID, "client_secret" : SecretCode]
-        Alamofire.request(tokenUrl, method : .post, parameters : params).responseJSON {
-            response in
-            if response.result.isSuccess {
-                
-                let tokenRes : JSON = JSON(response.result.value!)
-                
-                self.requestUrl += self.NickName
-                self.getInfo(token: tokenRes["access_token"].stringValue)
-            } else {
-                print ("Loshara Tupoi")
-            }
-        }
-    }
-    
-    func    setParams(results : JSON) {
-        
-        self.Data.NameSurname = results["displayname"].stringValue
-        self.Data.Number = results["phone"].stringValue
-        self.Data.Points = results["correction_point"].stringValue
-        self.Data.Level = results["cursus_users"][0]["level"].stringValue
-        self.Data.Image = results["image_url"].stringValue
-    }
-
-}
-
-extension SearchResViewController: UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if section == 0 {
+            return 1
+        }
+        if section == 1 {
+            return 5
+        }
+        if section == 2 {
+            return Data.Projects.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
         
-        cell.ProjectName.text = "lol"
+        if indexPath.section == 0 {
+            
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as? InfoCell {
+                cell.setLabelNames(with:Data)
+                return cell
+            }
+        }
         
-        return cell
+        if indexPath.section == 1 {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "SkillsCell", for: indexPath) as? SkillsCell {
+                return cell
+            }
+        }
+        
+        if indexPath.section == 2 {
+            let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
+            
+            for (key,value) in Data.Projects[indexPath.row] {
+                
+                cell.ProjectName.text = "\(key)"
+            }
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0 {
+            return addHeader(text:"User Info")
+        }
+        if section == 1 {
+            return addHeader(text:"User Skills")
+        }
+        if section == 2 {
+            return addHeader(text:"User Projects")
+        }
+        return UIView()
+    }
+    
+    func addHeader(text: String) -> UIView {
+        let view = UIView()
+        view.backgroundColor = UIColor(red:0.7, green:0.8, blue:0.8, alpha:1.0)
+        
+        let label = UILabel()
+        label.text = text
+        label.frame = CGRect(x: 45, y: 5, width: 200, height: 35)
+        view.addSubview(label)
+        
+        return view
     }
 }

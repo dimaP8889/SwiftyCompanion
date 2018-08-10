@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DE4FE59C4CF1D65BB2A8CAA9 /* Pods_SwiftyCompanion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E506BA2AC42CD9AF17CF7AD0 /* Pods_SwiftyCompanion.framework */; };
+		E80EEA75211DEB5A0017142E /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80EEA74211DEB5A0017142E /* InfoCell.swift */; };
+		E80EEA79211DF7380017142E /* SkillsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80EEA78211DF7380017142E /* SkillsCell.swift */; };
 		E813BDAB211AFF6E0059340B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E813BDAA211AFF6E0059340B /* AppDelegate.swift */; };
 		E813BDAD211AFF6E0059340B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E813BDAC211AFF6E0059340B /* ViewController.swift */; };
 		E813BDB0211AFF6E0059340B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E813BDAE211AFF6E0059340B /* Main.storyboard */; };
@@ -23,6 +25,8 @@
 		8164DE2EF56E305BAE0A73A6 /* Pods-SwiftyCompanion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyCompanion.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyCompanion/Pods-SwiftyCompanion.release.xcconfig"; sourceTree = "<group>"; };
 		CB1F54BE362A8F1D9B721C2F /* Pods-SwiftyCompanion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyCompanion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyCompanion/Pods-SwiftyCompanion.debug.xcconfig"; sourceTree = "<group>"; };
 		E506BA2AC42CD9AF17CF7AD0 /* Pods_SwiftyCompanion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyCompanion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E80EEA74211DEB5A0017142E /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		E80EEA78211DF7380017142E /* SkillsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillsCell.swift; sourceTree = "<group>"; };
 		E813BDA7211AFF6E0059340B /* SwiftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E813BDAA211AFF6E0059340B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E813BDAC211AFF6E0059340B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,9 +102,11 @@
 		E8C55A52211B3F86009CFB42 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E80EEA78211DF7380017142E /* SkillsCell.swift */,
 				E814E447211B657000F07EF2 /* TableViewCell.swift */,
 				E813BDAC211AFF6E0059340B /* ViewController.swift */,
 				E813BDC4211B18420059340B /* SearchResViewController.swift */,
+				E80EEA74211DEB5A0017142E /* InfoCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -203,11 +209,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyCompanion/Pods-SwiftyCompanion-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,8 +251,10 @@
 				E81EE191211BB2C200162232 /* 42Data.swift in Sources */,
 				E813BDAD211AFF6E0059340B /* ViewController.swift in Sources */,
 				E814E449211B657000F07EF2 /* TableViewCell.swift in Sources */,
+				E80EEA79211DF7380017142E /* SkillsCell.swift in Sources */,
 				E813BDC5211B18420059340B /* SearchResViewController.swift in Sources */,
 				E813BDAB211AFF6E0059340B /* AppDelegate.swift in Sources */,
+				E80EEA75211DEB5A0017142E /* InfoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
