@@ -22,8 +22,6 @@ class SearchResViewController: UITableViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
-//        self.tableView.register(InfoCell.self, forCellReuseIdentifier: "InfoCell")
-//        self.tableView.register(SkillsCell.self, forCellReuseIdentifier: "SkillsCell")
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -49,8 +47,7 @@ class SearchResViewController: UITableViewController {
 
             if let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as? InfoCell {
                 cell.setLabelNames(with:Data)
-                tableView.rowHeight = UITableViewAutomaticDimension
-                tableView.estimatedRowHeight = 160
+                cell.backgroundColor = UIColor(patternImage: UIImage(named: "bg.png")!)
                 return cell
             }
         }

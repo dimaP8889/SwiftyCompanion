@@ -109,8 +109,12 @@ class ViewController: UIViewController {
         self.Data.NameSurname = results["displayname"].stringValue
         self.Data.Number = results["phone"].stringValue
         self.Data.Points = results["correction_point"].stringValue
-        self.Data.Level = results["cursus_users"][0]["level"].stringValue
+        self.Data.Level = "\(String(format: "%.2f", results["cursus_users"][0]["level"].doubleValue))"
         self.Data.Image = results["image_url"].stringValue
+        self.Data.Email = results["email"].stringValue
+        self.Data.Wallet = results["wallet"].stringValue
+        self.Data.Place = results["location"].stringValue
+        print(results)
     }
     
     func    setProjectParams(results : JSON) {

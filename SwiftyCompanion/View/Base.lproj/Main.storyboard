@@ -114,17 +114,16 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="187.5" height="95"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TlC-5I-dVn">
-                                                                    <rect key="frame" x="31" y="-4" width="138" height="103"/>
+                                                                    <rect key="frame" x="9" y="-17.5" width="170" height="130"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="138" id="a1g-XD-vFe"/>
-                                                                        <constraint firstAttribute="height" constant="103" id="fDN-QD-LXL"/>
+                                                                        <constraint firstAttribute="height" constant="130" id="XFf-mu-bfr"/>
+                                                                        <constraint firstAttribute="width" constant="170" id="w3f-Ur-xC4"/>
                                                                     </constraints>
                                                                 </imageView>
                                                             </subviews>
-                                                            <color key="backgroundColor" red="0.92010687280000003" green="1" blue="0.47330541700000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
-                                                                <constraint firstItem="TlC-5I-dVn" firstAttribute="centerY" secondItem="6Et-yJ-znb" secondAttribute="centerY" id="8Hu-Vs-asm"/>
-                                                                <constraint firstItem="TlC-5I-dVn" firstAttribute="centerX" secondItem="6Et-yJ-znb" secondAttribute="centerX" constant="6.25" id="fbT-p6-rX3"/>
+                                                                <constraint firstItem="TlC-5I-dVn" firstAttribute="centerY" secondItem="6Et-yJ-znb" secondAttribute="centerY" id="PKl-Ln-d1r"/>
+                                                                <constraint firstItem="TlC-5I-dVn" firstAttribute="centerX" secondItem="6Et-yJ-znb" secondAttribute="centerX" id="szY-1v-4Wj"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bu3-as-akC" userLabel="Info View">
@@ -148,7 +147,6 @@
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="3Kr-wL-OFd" secondAttribute="bottom" constant="8" id="fn7-c0-SB2"/>
                                                                 <constraint firstItem="3Kr-wL-OFd" firstAttribute="top" secondItem="bu3-as-akC" secondAttribute="top" constant="8" id="jeq-Gd-ioR"/>
@@ -215,7 +213,6 @@
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.92466853910000002" green="0.54416415039999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="scY-8O-PFe" secondAttribute="bottom" constant="16" id="Egy-ow-0WZ"/>
                                                 <constraint firstItem="scY-8O-PFe" firstAttribute="top" secondItem="H8D-gS-l93" secondAttribute="top" constant="16" id="UE6-Mg-abl"/>
@@ -238,10 +235,13 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="CorrectionPoints" destination="ZtS-P8-nsG" id="RoC-zy-NVs"/>
+                                    <outlet property="Email" destination="nsr-lq-1Gi" id="S8Y-aj-bDz"/>
                                     <outlet property="Face" destination="TlC-5I-dVn" id="t49-8p-mD9"/>
                                     <outlet property="Level" destination="GcI-ED-HLR" id="jIm-cY-grY"/>
                                     <outlet property="NameSurname" destination="8VR-j7-dQz" id="rhn-ex-WDO"/>
                                     <outlet property="PhoneNumber" destination="LFw-En-6x8" id="WDA-2T-tQX"/>
+                                    <outlet property="Place" destination="d6g-qO-Wi3" id="18S-x4-zbF"/>
+                                    <outlet property="Wallet" destination="bwX-FE-fck" id="aPX-tW-6yk"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SkillsCell" rowHeight="144" id="GVn-gn-AxZ" userLabel="Project Table View Cell" customClass="SkillsCell" customModule="SwiftyCompanion" customModuleProvider="target">

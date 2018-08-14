@@ -15,6 +15,9 @@ class UserData {
     var Number = ""
     var Points = ""
     var Level = ""
+    var Wallet = ""
+    var Email = ""
+    var Place = ""
     
     var Image = ""
     
