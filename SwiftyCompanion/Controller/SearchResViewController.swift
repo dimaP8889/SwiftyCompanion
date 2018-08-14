@@ -10,19 +10,11 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-class SearchResViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
-    
-    
-    let UID = "d7d492c61c7fdff3ba700084416e5a68511b5b898598da227c9ab541ddb20941"
-    let SecretCode = "81617b0caa2f631e32492aa3015e05c4e57441f66dfba16ab621c6a5e2b7db57"
-    let tokenUrl = "https://api.intra.42.fr/oauth/token"
-    var requestUrl = "https://api.intra.42.fr/v2/users/"
+class SearchResViewController: UITableViewController {
     
     var NickName = ""
     
     var Data = UserData()
-    
-    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,15 +22,15 @@ class SearchResViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
-        self.tableView.register(InfoCell.self, forCellReuseIdentifier: "InfoCell")
-        self.tableView.register(SkillsCell.self, forCellReuseIdentifier: "SkillsCell")
+//        self.tableView.register(InfoCell.self, forCellReuseIdentifier: "InfoCell")
+//        self.tableView.register(SkillsCell.self, forCellReuseIdentifier: "SkillsCell")
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
         }
@@ -51,27 +43,30 @@ class SearchResViewController: UIViewController, UITableViewDelegate, UITableVie
         return 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
-            
+
             if let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as? InfoCell {
                 cell.setLabelNames(with:Data)
+                tableView.rowHeight = UITableViewAutomaticDimension
+                tableView.estimatedRowHeight = 160
                 return cell
             }
         }
         
         if indexPath.section == 1 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "SkillsCell", for: indexPath) as? SkillsCell {
+                cell.loli()
                 return cell
             }
         }
         
         if indexPath.section == 2 {
             let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
-            
+
             for (key,value) in Data.Projects[indexPath.row] {
-                
+
                 cell.ProjectName.text = "\(key)"
             }
             return cell
@@ -79,7 +74,21 @@ class SearchResViewController: UIViewController, UITableViewDelegate, UITableVie
         return UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 300
+        }
+        if indexPath.section == 1 {
+            return 100
+        }
+        return 100
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
             return addHeader(text:"User Info")
         }

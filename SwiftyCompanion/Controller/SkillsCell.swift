@@ -12,5 +12,8 @@ import UIKit
 class SkillsCell: UITableViewCell {
     
     @IBOutlet weak var SkillsName: UILabel!
-    @IBOutlet weak var SkillsProgress: UIView!
+    
+    func loli()  {
+        SkillsName.text = "lof"
+    }
 }

@@ -24,14 +24,6 @@ class InfoCell: UITableViewCell {
     
     func    setLabelNames(with Data: UserData){
         
-//        if let name = Data.NameSurname {
-//            if let mark = Data.Number {
-//                if let success = Data.Points {
-//                    NameSurname.text = name
-//                }
-//            }
-//        }
-        
         NameSurname.text = Data.NameSurname
         PhoneNumber.text = "Phone: " + Data.Number
         CorrectionPoints.text = "Points: " + Data.Points
@@ -40,5 +32,6 @@ class InfoCell: UITableViewCell {
         let url = URL(string: Data.Image)
         let data = NSData(contentsOf: url! as URL)
         Face.image = UIImage(data: data! as Data)
+        print(Face)
     }
 }
