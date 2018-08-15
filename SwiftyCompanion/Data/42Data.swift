@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class UserData {
     
@@ -20,6 +21,7 @@ class UserData {
     var Place = ""
     
     var Image = ""
+    var ImageDown : UIImage?
     
     var Projects : [[String : Int]] = []
     

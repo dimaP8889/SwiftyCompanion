@@ -86,6 +86,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="LabelView" destination="laZ-iz-YBg" id="td9-jF-8Ia"/>
                 <outlet property="ProjectMark" destination="DnX-Q5-vUy" id="I2L-oY-xth"/>
                 <outlet property="ProjectName" destination="cIc-je-iFh" id="tW2-cV-EHN"/>
             </connections>

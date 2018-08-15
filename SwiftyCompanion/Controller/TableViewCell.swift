@@ -11,5 +11,6 @@ import UIKit
 class TableViewCell: UITableViewCell {
     
     @IBOutlet var ProjectName: UILabel!
+    @IBOutlet weak var LabelView: UIView!
     @IBOutlet weak var ProjectMark: UILabel!
 }

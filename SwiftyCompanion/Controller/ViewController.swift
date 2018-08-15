@@ -46,6 +46,7 @@ class ViewController: UIViewController {
             
             let secondVC = segue.destination as! SearchResViewController
             
+            secondVC.TableTiltle.title = self.NickName
             secondVC.Data = self.Data
         }
     }
@@ -105,21 +106,26 @@ class ViewController: UIViewController {
         }
     }
     
+    //Mark : Set users skills
     func    setUserSkills (with results : JSON) {
         
         let numberOfSkills : Int = results["cursus_users"][0]["skills"].count
         
-        print(results["cursus_users"][0]["skills"][0])
+        print(results)
         
         if numberOfSkills > 0 {
-        
+            
+            Data.Skills.removeAll()
             for projCnt in 0...numberOfSkills - 1 {
 
                 Data.Skills.append([results["cursus_users"][0]["skills"][projCnt]["name"].stringValue : results["cursus_users"][0]["skills"][projCnt]["level"].doubleValue])
             }
+        } else {
+            Data.Skills.removeAll()
         }
     }
     
+    //Mark : Set User Params
     func    setUserParams(results : JSON) {
         
         self.Data.NameSurname = results["displayname"].stringValue
@@ -130,20 +136,28 @@ class ViewController: UIViewController {
         self.Data.Email = results["email"].stringValue
         self.Data.Wallet = results["wallet"].stringValue
         self.Data.Place = results["location"].stringValue
+        
+        let url = URL(string: Data.Image)
+        let data = NSData(contentsOf: url! as URL)
+        self.Data.ImageDown = UIImage(data: data! as Data)
     }
     
+    //Mark : Set Progects
     func    setProjectParams(results : JSON) {
         
         let numberOfProjects : Int = results["projects_users"].count
         
         if numberOfProjects > 0 {
             
+            Data.Projects.removeAll()
             for projCnt in 0...numberOfProjects - 1 {
                 
                 if (results["projects_users"][projCnt]["project"]["slug"].stringValue.range(of: "piscine") == nil) {
-                Data.Projects.append([results["projects_users"][projCnt]["project"]["slug"].stringValue : results["projects_users"][projCnt]["final_mark"].intValue])
+                    Data.Projects.append([results["projects_users"][projCnt]["project"]["slug"].stringValue : results["projects_users"][projCnt]["final_mark"].intValue])
                 }
             }
+        } else {
+            Data.Projects.removeAll()
         }
     }
 }

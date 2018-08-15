@@ -12,7 +12,7 @@ import Alamofire
 
 class SearchResViewController: UITableViewController {
     
-    var NickName = ""
+    @IBOutlet weak var TableTiltle: UINavigationItem!
     
     var Data = UserData()
     
@@ -62,6 +62,7 @@ class SearchResViewController: UITableViewController {
                 for (key,value) in Data.Skills[indexPath.row] {
                     
                     cell.SkillsName.text = "\(key) : \(String(format: "%.2f", value))"
+                    cell.SkillProgress.setProgress(Float(value) / 20, animated: false)
                 }
                 return cell
             }
@@ -70,9 +71,14 @@ class SearchResViewController: UITableViewController {
         if indexPath.section == 2 {
             let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
             for (key,value) in Data.Projects[indexPath.row] {
-
+                
                 cell.ProjectName.text = "\(key)"
                 cell.ProjectMark.text = "\(value)"
+                cell.ProjectMark.textColor = UIColor.blue
+                if (value < 75) {
+                    
+                    cell.LabelView.backgroundColor = UIColor.red
+                }
             }
             return cell
         }
@@ -85,7 +91,7 @@ class SearchResViewController: UITableViewController {
             return 300
         }
         if indexPath.section == 1 {
-            return 100
+            return 80
         }
         return 50
     }

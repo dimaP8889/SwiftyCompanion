@@ -20,6 +20,8 @@ class InfoCell: UITableViewCell {
     @IBOutlet var Wallet: UILabel!
     @IBOutlet var Place: UILabel!
     
+    var Image : UIImage?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -33,15 +35,13 @@ class InfoCell: UITableViewCell {
         Level?.text = "Level: " + Data.Level
         Email?.text = "Email: " + Data.Email
         Wallet?.text = "Wallet: " + Data.Wallet
+        Face?.image = Data.ImageDown
+        
         if Data.Place.count > 0 {
             Place?.text = "Place: " + Data.Place
         } else {
-            
             Place?.text = "Place: Unavailable"
         }
-        
-        let url = URL(string: Data.Image)
-        let data = NSData(contentsOf: url! as URL)
-        Face?.image = UIImage(data: data! as Data)
     }
 }
+
