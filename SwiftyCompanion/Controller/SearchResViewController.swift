@@ -16,6 +16,7 @@ class SearchResViewController: UITableViewController {
     
     var Data = UserData()
     
+    // Mark : Load
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,16 +25,18 @@ class SearchResViewController: UITableViewController {
         self.tableView.register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
     }
     
+    // Mark : Number of sections
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
     
+    // Mark : Number of Raws in a section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
         }
         if section == 1 {
-            return 5
+            return Data.Skills.count
         }
         if section == 2 {
             return Data.Projects.count
@@ -41,8 +44,10 @@ class SearchResViewController: UITableViewController {
         return 0
     }
     
+    // Mark : Set cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        tableView.allowsSelection = false
         if indexPath.section == 0 {
 
             if let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as? InfoCell {
@@ -54,23 +59,27 @@ class SearchResViewController: UITableViewController {
         
         if indexPath.section == 1 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "SkillsCell", for: indexPath) as? SkillsCell {
-                cell.loli()
+                for (key,value) in Data.Skills[indexPath.row] {
+                    
+                    cell.SkillsName.text = "\(key) : \(String(format: "%.2f", value))"
+                }
                 return cell
             }
         }
         
         if indexPath.section == 2 {
             let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
-
             for (key,value) in Data.Projects[indexPath.row] {
 
                 cell.ProjectName.text = "\(key)"
+                cell.ProjectMark.text = "\(value)"
             }
             return cell
         }
         return UITableViewCell()
     }
     
+    // Mark : Height For a Row
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 300
@@ -78,13 +87,16 @@ class SearchResViewController: UITableViewController {
         if indexPath.section == 1 {
             return 100
         }
-        return 100
+        return 50
     }
     
+    
+    // Mark : Header Height
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return 45
     }
     
+    // Mark : Header for Section
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
             return addHeader(text:"User Info")
@@ -98,6 +110,7 @@ class SearchResViewController: UITableViewController {
         return UIView()
     }
     
+    // Mark : Make Header
     func addHeader(text: String) -> UIView {
         let view = UIView()
         view.backgroundColor = UIColor(red:0.7, green:0.8, blue:0.8, alpha:1.0)

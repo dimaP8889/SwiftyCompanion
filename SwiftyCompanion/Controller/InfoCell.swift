@@ -33,7 +33,12 @@ class InfoCell: UITableViewCell {
         Level?.text = "Level: " + Data.Level
         Email?.text = "Email: " + Data.Email
         Wallet?.text = "Wallet: " + Data.Wallet
-        Place?.text = "Place: " + Data.Place
+        if Data.Place.count > 0 {
+            Place?.text = "Place: " + Data.Place
+        } else {
+            
+            Place?.text = "Place: Unavailable"
+        }
         
         let url = URL(string: Data.Image)
         let data = NSData(contentsOf: url! as URL)

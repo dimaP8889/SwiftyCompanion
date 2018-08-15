@@ -21,5 +21,7 @@ class UserData {
     
     var Image = ""
     
-    var Projects : [[String : Int]] = [[:]]
+    var Projects : [[String : Int]] = []
+    
+    var Skills : [[String : Double]] = []
 }

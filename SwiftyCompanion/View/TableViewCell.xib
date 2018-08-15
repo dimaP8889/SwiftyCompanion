@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -44,18 +44,21 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="laZ-iz-YBg" userLabel="Right View">
                                 <rect key="frame" x="292" y="0.0" width="292" height="148"/>
                                 <subviews>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vIf-5u-Rbv">
-                                        <rect key="frame" x="71" y="73" width="150" height="2"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DnX-Q5-vUy">
+                                        <rect key="frame" x="98" y="53" width="96" height="42"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="K2q-0Z-rOO"/>
-                                            <constraint firstAttribute="height" constant="2" id="aqH-1e-TXh"/>
+                                            <constraint firstAttribute="width" constant="96" id="Mgl-BA-bxg"/>
+                                            <constraint firstAttribute="height" constant="42" id="YQS-gp-DWD"/>
                                         </constraints>
-                                    </progressView>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.30401339669999999" green="1" blue="0.11779823439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstItem="vIf-5u-Rbv" firstAttribute="centerX" secondItem="laZ-iz-YBg" secondAttribute="centerX" id="I8d-lS-Ee7"/>
-                                    <constraint firstItem="vIf-5u-Rbv" firstAttribute="centerY" secondItem="laZ-iz-YBg" secondAttribute="centerY" id="nQy-0c-PkD"/>
+                                    <constraint firstItem="DnX-Q5-vUy" firstAttribute="centerX" secondItem="laZ-iz-YBg" secondAttribute="centerX" id="1Pt-ph-jNS"/>
+                                    <constraint firstItem="DnX-Q5-vUy" firstAttribute="centerY" secondItem="laZ-iz-YBg" secondAttribute="centerY" id="xWM-gi-tZg"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -83,6 +86,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="ProjectMark" destination="DnX-Q5-vUy" id="I2L-oY-xth"/>
                 <outlet property="ProjectName" destination="cIc-je-iFh" id="tW2-cV-EHN"/>
             </connections>
             <point key="canvasLocation" x="77" y="26"/>

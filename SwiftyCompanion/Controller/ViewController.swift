@@ -96,11 +96,27 @@ class ViewController: UIViewController {
         if (results["displayname"] != JSON.null) {
             setUserParams(results: results)
             setProjectParams(results: results)
+            setUserSkills(with : results)
             performSegue(withIdentifier: "SearchResults", sender: self)
             SVProgressHUD.dismiss()
         } else {
             SVProgressHUD.setMaximumDismissTimeInterval(1.5)
             SVProgressHUD.showError(withStatus: "No User Found")
+        }
+    }
+    
+    func    setUserSkills (with results : JSON) {
+        
+        let numberOfSkills : Int = results["cursus_users"][0]["skills"].count
+        
+        print(results["cursus_users"][0]["skills"][0])
+        
+        if numberOfSkills > 0 {
+        
+            for projCnt in 0...numberOfSkills - 1 {
+
+                Data.Skills.append([results["cursus_users"][0]["skills"][projCnt]["name"].stringValue : results["cursus_users"][0]["skills"][projCnt]["level"].doubleValue])
+            }
         }
     }
     
@@ -114,17 +130,19 @@ class ViewController: UIViewController {
         self.Data.Email = results["email"].stringValue
         self.Data.Wallet = results["wallet"].stringValue
         self.Data.Place = results["location"].stringValue
-        print(results)
     }
     
     func    setProjectParams(results : JSON) {
         
-        let numberOfProjects : Int = results["projects_users"].count - 1
+        let numberOfProjects : Int = results["projects_users"].count
         
-        for projCnt in 0...numberOfProjects {
+        if numberOfProjects > 0 {
             
-            if (results["projects_users"][projCnt]["project"]["slug"].stringValue.range(of: "piscine") == nil) {
-            Data.Projects.append([results["projects_users"][projCnt]["project"]["slug"].stringValue : results["projects_users"][projCnt]["final_mark"].intValue])
+            for projCnt in 0...numberOfProjects - 1 {
+                
+                if (results["projects_users"][projCnt]["project"]["slug"].stringValue.range(of: "piscine") == nil) {
+                Data.Projects.append([results["projects_users"][projCnt]["project"]["slug"].stringValue : results["projects_users"][projCnt]["final_mark"].intValue])
+                }
             }
         }
     }
